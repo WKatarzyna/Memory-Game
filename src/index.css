@@ -1,0 +1,146 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  background-color: #CF9588;
+
+}
+
+
+.board {
+  width: 90%;
+  height: 100vh;
+  background-image: linear-gradient( rgb(236,209,249, .8), rgb(207,149,136, .8)), url('/img/puzzle.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin:0 auto;
+  padding-top: 5%;
+  border-radius: 5%;
+  box-shadow: 0px 0px 2.5rem #CF9588;
+  padding-bottom: 10%;
+ 
+ 
+  
+
+}
+
+.description {
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+  font-style: italic;
+ 
+}
+.break {
+  border: 2px dashed #CF9588;
+}
+
+.header-main {
+  font-size: 63px;
+  padding: 5px;
+  text-align:center;
+  font-weight: 600;
+  color: #495F75;
+  text-shadow: 0px 0px 2.5rem grey;
+}
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 auto;
+  position: relative;
+  background-color: rgb(222,235,237);
+  font-family: 'Lato';
+  
+  box-shadow: 0px 0px 2.5rem black;
+  border-radius: 10px;
+ 
+}
+
+
+
+
+.navigation {
+  position:relative;
+
+}
+
+.navContent {
+text-align: center;
+display: inline-block;
+margin-left: 20%;
+margin-bottom: 2%;
+font-family: "Cabin Sketch"; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;
+}
+
+.reset {
+  font-family: "Cabin Sketch"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;
+  border: none;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10%;
+  margin-left: 45%;
+  margin-bottom:2%;
+}
+
+.reset:hover {
+  transform: scaleY(1.1);
+}
+.flip-container {
+  perspective: 1000px;
+  display: inline-block;
+  border:2px solid white;
+  background: #CF9588;
+  width: 100px;
+  height:100px;
+  margin-left:10%;
+ 
+  margin-bottom: 5%;
+
+}
+
+
+
+
+.board-content{
+  margin-left: 5%;
+}
+
+.flip-container.flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  transform:translate(180deg);
+  transition: 1s;
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+}
+
+.back {
+  z-index: 2;
+  transform: rotateY(0deg);
+  width: 100px;
+  height:100px;
+ 
+}
+
+.front {
+  transform: rotateY(180deg);
+  width: 100px;
+  height:100px;
+ 
+}
+
+h2{
+  color:grey;
+}
