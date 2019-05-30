@@ -9,7 +9,7 @@ class Navigation  extends Component {
             <div className="navigation">
               <div className="navContent">
               <h1 className="header-main">Memory Game</h1>
-              <h2>Can you remember where the cards are ?</h2></div>
+              <h2>Font Awesome find out your Icon Pack</h2></div>
               
             </div>)
     }

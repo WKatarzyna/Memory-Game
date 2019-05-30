@@ -12,7 +12,7 @@ function shuffle(array) {
 
  function setLayer() {
   let id = 0
-  const cards = ['1', '2', '3', '4','5','6','7','8'
+  const cards = ['1', '2', '3', '4','5','6'
   ].reduce((acc, type) => {
     acc.push(...[{
       id: id++,

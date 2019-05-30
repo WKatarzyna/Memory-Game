@@ -5,23 +5,14 @@ html,body {
 
 }
 
-
 .board {
-  width: 90%;
-  height: 100vh;
-  background-image: linear-gradient( rgb(236,209,249, .8), rgb(207,149,136, .8)), url('/img/puzzle.jpg');
+  width: 88%;
+  background-image: linear-gradient( rgb(236,209,249, .8), rgb(113, 125, 126, .8)), url('/img/puzzle.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin:0 auto;
   padding-top: 5%;
   border-radius: 5%;
-  box-shadow: 0px 0px 2.5rem #CF9588;
-  padding-bottom: 10%;
- 
- 
-  
-
 }
 
 .description {
@@ -29,32 +20,49 @@ html,body {
   padding: 10px;
   text-align: center;
   font-style: italic;
- 
-}
-.break {
-  border: 2px dashed #CF9588;
 }
 
+
 .header-main {
-  font-size: 63px;
-  padding: 5px;
-  text-align:center;
+  font-size: 32px;
   font-weight: 600;
-  color: #495F75;
-  text-shadow: 0px 0px 2.5rem grey;
+
 }
+
 .container {
-  width: 960px;
+  width: 980px;
   margin: 0 auto;
   padding: 0 auto;
   position: relative;
-  background-color: rgb(222,235,237);
+  background-color: rgb(204, 209, 209 );
   font-family: 'Lato';
-  
   box-shadow: 0px 0px 2.5rem black;
   border-radius: 10px;
  
 }
+@media only screen and (min-width: 300px){
+
+  .container {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 960px){
+
+  .container {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+  @media only screen and (min-width: 720px){
+
+    .container {
+      width: 700px;
+    }
+  }
+    
+  
 
 
 
@@ -67,7 +75,7 @@ html,body {
 .navContent {
 text-align: center;
 display: inline-block;
-margin-left: 20%;
+margin-left: 15%;
 margin-bottom: 2%;
 font-family: "Cabin Sketch"; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;
 }
@@ -78,7 +86,7 @@ font-family: "Cabin Sketch"; font-size: 20px; font-style: normal; font-variant: 
   background-color: white;
   padding: 10px;
   border-radius: 10%;
-  margin-left: 45%;
+  margin-left: 40%;
   margin-bottom:2%;
 }
 
@@ -90,19 +98,30 @@ font-family: "Cabin Sketch"; font-size: 20px; font-style: normal; font-variant: 
   display: inline-block;
   border:2px solid white;
   background: #CF9588;
-  width: 100px;
-  height:100px;
-  margin-left:10%;
- 
+  width: 150px;
+  height:150px;
+  margin-left:4%;
   margin-bottom: 5%;
+}
 
+@media only screen and (min-width: 300px){
+
+  .flip-container {
+    margin-left:15%;
+    
+  }
+}
+
+@media only screen and (min-width: 720px){
+
+  .flip-container {
+    margin-left:4%;
+  }
 }
 
 
-
-
 .board-content{
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .flip-container.flipped .flipper {
@@ -129,18 +148,40 @@ font-family: "Cabin Sketch"; font-size: 20px; font-style: normal; font-variant: 
 .back {
   z-index: 2;
   transform: rotateY(0deg);
-  width: 100px;
-  height:100px;
+  width: 150px;
+  height:150px;
  
 }
 
 .front {
   transform: rotateY(180deg);
-  width: 100px;
-  height:100px;
+  width: 150px;
+  height:150px;
  
 }
 
-h2{
-  color:grey;
+.logo {
+  width: 300px;
+  margin-left: 40%;
+}
+@media only screen and (min-width: 720px){
+
+  .logo{
+    margin-left:30%;
+  }
+}
+@media only screen and (min-width: 300px){
+
+  .logo{
+    width: 200px;
+    margin-left:35%;
+  }
+}
+.footer span{
+  display: block
+}
+.footer-text{
+  text-align: center;
+  font-weight: 600;
+  font-family: "lato";
 }
