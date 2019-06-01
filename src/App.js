@@ -10,29 +10,26 @@ function App() {
   
   let [flipped, setFlipped] = useState([])// śledzenie id karty
   let[turn, setTurn]= useState(false)//odwracanie kart do 2 
-  let [solved, setSolved] = useState([])// śledzenie id karty
+  let [solved, setSolved] = useState([])// śledzenie odwrócenia karty
   let [cards, setCards] = useState([])
   useEffect(() => {
     setCards(setLayer())
   }, [])
+  
   let sameCardClickedTwice = (id) => flipped.includes(id)
 
-  let isAMatch = (id) => {
+  let cardMatch = (id) => {
     const clickedCard = cards.find((card) => card.id === id)
     console.log(clickedCard);
     const flippedCard = cards.find((card) => flipped[0] === card.id)
     console.log(flippedCard);
-    
     return flippedCard.type === clickedCard.type
     
   }
-
-  let resetButton = () => {
+  const resetButton = () => {
     setFlipped([])
     setTurn(false)
-    for(let i =0; i < cards.lenght;i++){
-      console.log(cards[i]);
-    }
+    setSolved([])
   }
   const resetCards = () => {
     setFlipped([])
@@ -48,11 +45,11 @@ function App() {
     } else {
       if (sameCardClickedTwice(flipped, id)) return
       setFlipped((flipped) => [...flipped, id])
-      if (isAMatch(id)) {
+      if (cardMatch(id)) {
         setSolved([...solved, ...flipped, id])
         resetCards()
       } else {
-        setTimeout(resetCards, 600)
+        setTimeout(resetCards, 700)
       }
     }
   }
@@ -65,7 +62,7 @@ function App() {
        className="reset"
        onClick={(
        ) => ( resetButton(
-        // śledzenie id karty
+         setSolved([]),
          setFlipped([]),
          setTurn(false),
         
