@@ -2,51 +2,50 @@
 import React, { useState, useEffect } from 'react'
 import Navigation from './components/navigation/Navigation';
 import Board from './components/main/board/board';
-import setLayer from './components/main/layer/layer';
+import Setgame from './utils/layer';
 import Footer from './components/main/footer/footer'
 
 function App() {
 
-  
-  let [flipped, setFlipped] = useState([])// śledzenie id karty
-  let[turn, setTurn]= useState(false)//odwracanie kart do 2 
   let [solved, setSolved] = useState([])// śledzenie odwrócenia karty
+  let [settingCards, setCardsLayer] = useState([])// śledzenie id karty
+  let[turn, setTurn]= useState(false)//odwracanie kart do 2 
   let [cards, setCards] = useState([])
   useEffect(() => {
-    setCards(setLayer())
+    setCards(Setgame())
   }, [])
   
-  let sameCardClickedTwice = (id) => flipped.includes(id)
+  let sameCardClickedTwice = (id) => settingCards.includes(id)
 
   let cardMatch = (id) => {
     const clickedCard = cards.find((card) => card.id === id)
     console.log(clickedCard);
-    const flippedCard = cards.find((card) => flipped[0] === card.id)
+    const flippedCard = cards.find((card) => settingCards[0] === card.id)
     console.log(flippedCard);
     return flippedCard.type === clickedCard.type
     
   }
   const resetButton = () => {
-    setFlipped([])
+    setCardsLayer([])
     setTurn(false)
     setSolved([])
   }
   const resetCards = () => {
-    setFlipped([])
+    setCardsLayer([])
     setTurn(false)
   }
 
   const handleClick = (id) => {
     setTurn(true)
-    if (flipped.length === 0) {
+    if (settingCards.length === 0) {
       
-      setFlipped((flipped) => [...flipped, id])
+      setCardsLayer((settingCards) => [...settingCards, id])
       setTurn(false)
     } else {
-      if (sameCardClickedTwice(flipped, id)) return
-      setFlipped((flipped) => [...flipped, id])
+      if (sameCardClickedTwice(settingCards, id)) return
+      setCardsLayer((setCards) => [...settingCards, id])
       if (cardMatch(id)) {
-        setSolved([...solved, ...flipped, id])
+        setSolved([...solved, ...settingCards, id])//odwołanie do atrybutu obiektu cards
         resetCards()
       } else {
         setTimeout(resetCards, 700)
@@ -63,7 +62,7 @@ function App() {
        onClick={(
        ) => ( resetButton(
          setSolved([]),
-         setFlipped([]),
+         setCardsLayer([]),
          setTurn(false),
         
        ))} >Reset Game</button>
@@ -73,7 +72,7 @@ function App() {
         <div className="board-content">
         <Board
         cards={cards}
-        flipped={flipped}
+        flipped={settingCards}
         handleClick={handleClick}
         solved={solved}
         turn={turn}/>
