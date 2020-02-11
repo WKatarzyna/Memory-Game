@@ -17,9 +17,7 @@ function App() {
 
   let cardMatch = id => {
     const clickedCard = cards.find(card => card.id === id);
-    console.log(clickedCard);
     const flippedCard = cards.find(card => settingCards[0] === card.id);
-    console.log(flippedCard);
     return flippedCard.type === clickedCard.type;
   };
   const resetButton = () => {
